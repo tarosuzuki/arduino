@@ -11,3 +11,6 @@ sample of controling DC motors.
  - use motor driver TA7291SG
  - power input for motors : 2.6V (two AA batteries.)
 
+###wifi_motor_control###
+sample of controling DC motors with wifi.
+
