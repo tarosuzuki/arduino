@@ -6,3 +6,8 @@ this sketch access the http server (/localhost/~taro/wifitest) and getting the d
 this sketch act as TCP server and receive the TCP message.    
 PC sends TCP message like below.  
 `$echo hello arduino | nc 192.168.9.113 8090`
+###simple_dc_motor###
+sample of controling DC motors.  
+ - use motor driver TA7291SG
+ - power input for motors : 2.6V (two AA batteries.)
+
