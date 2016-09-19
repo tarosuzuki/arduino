@@ -37,6 +37,7 @@ void setup_dc_motor(void)
 
 void setup(void)
 {
+  Serial.begin(9600);
   setup_dc_motor();
 }
  
