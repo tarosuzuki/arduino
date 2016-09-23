@@ -11,6 +11,10 @@ sample of controling DC motors.
  - use motor driver TA7291SG
  - power input for motors : 2.6V (two AA batteries.)
 
+###simple_servo_motor###
+sample of controling Servo motors.
+ - use SG-90 motor.
+
 ###wifi_motor_control###
 sample of controling DC motors with wifi.
 
