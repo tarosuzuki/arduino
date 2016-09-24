@@ -1,14 +1,37 @@
 #include <Servo.h>
 
+#define WITHOUT_LIBRARY
+
+#if !defined(WITHOUT_LIBRARY)
 Servo myservo;  // create servo object to control a servo
+#endif
 
 int serial_read_counter = 0;
 int need_to_flush_buf = 0;
+const int pin_servo = 6;
+
+#if defined(WITHOUT_LIBRARY)
+void servo_control2(int angle){
+  int microsec,i;
+  microsec = (5*angle)+1000;
+       
+  for(i=0; i<20 ;i++){
+    digitalWrite(pin_servo, HIGH );
+    delayMicroseconds(microsec); 
+    digitalWrite(pin_servo, LOW );
+    delayMicroseconds(10000 - microsec); 
+  }
+}
+#endif
 
 void setup() {
   Serial.begin(9600);
+#if defined(WITHOUT_LIBRARY)
+  pinMode(pin_servo,OUTPUT);
+#else
   myservo.attach(6);
   myservo.write(90);
+#endif
   Serial.print("simple servo controller start.\nplease input target degree.\n");
 }
 
@@ -54,9 +77,13 @@ void loop() {
     Serial.print(buf);
     Serial.print("\n");
     
-    if (degree>70 && degree<110 ){
+    if (degree>50 && degree<130 ){
+#if defined(WITHOUT_LIBRARY)
+      servo_control2(degree);
+#else
       myservo.write(degree);
       delay(15);                           // waits for the servo to get there      
+#endif
     }
   }
 }
