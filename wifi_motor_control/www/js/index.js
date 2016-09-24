@@ -11,6 +11,8 @@
   Home.prototype = {
     forwardButton: document.getElementById('forward-button'),
     backwardButton: document.getElementById('backward-button'),
+    leftForwardButton: document.getElementById('left-forward-button'),
+    rightForwardButton: document.getElementById('right-forward-button'),
 
     setState : function(state) {
       $.ajax({
@@ -42,25 +44,19 @@
         that.setState("forward");
       });
 
-      this.forwardButton.addEventListener('focus', function() {
-        console.log ("forward button : focus");
-      });
-
-      this.forwardButton.addEventListener('blur', function() {
-        console.log ("forward button : blur");
-      });
-
-      this.forwardButton.addEventListener('click', function() {
-        console.log ("forward button is clicked");
-      });
-
       this.backwardButton.addEventListener('mousedown', function() {
         console.log ("backward button: mousedown");
         that.setState("backward");
       });
 
-      this.backwardButton.addEventListener('click', function() {
-        console.log ("backward button is clicked");
+      this.leftForwardButton.addEventListener('mousedown', function() {
+        console.log ("left-forward button : mousedown");
+        that.setState("left-forward");
+      });
+
+      this.rightForwardButton.addEventListener('mousedown', function() {
+        console.log ("right-forward button : mousedown");
+        that.setState("right-forward");
       });
 
     }
